@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Light — clean engineering interface */
+  --bg: 210 20% 97%;
+  --surface: 0 0% 100%;
+  --surface-raised: 210 20% 99%;
+  --border: 214 15% 88%;
+  --ink: 215 25% 12%;
+  --ink-muted: 215 12% 42%;
+
+  --healthy: 152 55% 34%;
+  --telemetry: 191 70% 38%;
+  --warning: 35 90% 42%;
+  --critical: 355 75% 45%;
+  --statistical: 262 50% 50%;
+  --offline: 215 10% 55%;
+}
+
+.dark {
+  /* Dark — industrial control room */
+  --bg: 218 30% 7%;
+  --surface: 218 26% 10%;
+  --surface-raised: 218 24% 13%;
+  --border: 218 18% 20%;
+  --ink: 210 25% 94%;
+  --ink-muted: 215 12% 62%;
+
+  --healthy: 152 60% 45%;
+  --telemetry: 191 85% 55%;
+  --warning: 38 95% 55%;
+  --critical: 355 85% 60%;
+  --statistical: 262 75% 68%;
+  --offline: 215 10% 45%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--ink));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: hsl(var(--telemetry) / 0.3);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid hsl(var(--telemetry));
+  outline-offset: 2px;
+}
