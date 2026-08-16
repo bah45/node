@@ -6,30 +6,30 @@
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 
-  /* Light — clean engineering interface */
-  --bg: 210 20% 97%;
+  /* Light — energetic observability interface */
+  --bg: 220 35% 97%;
   --surface: 0 0% 100%;
-  --surface-raised: 210 20% 99%;
-  --border: 214 15% 88%;
-  --ink: 215 25% 12%;
-  --ink-muted: 215 12% 42%;
+  --surface-raised: 215 55% 98%;
+  --border: 218 28% 87%;
+  --ink: 224 32% 14%;
+  --ink-muted: 220 14% 43%;
 
-  --healthy: 152 55% 34%;
-  --telemetry: 191 70% 38%;
-  --warning: 35 90% 42%;
-  --critical: 355 75% 45%;
-  --statistical: 262 50% 50%;
-  --offline: 215 10% 55%;
+  --healthy: 156 62% 35%;
+  --telemetry: 193 82% 36%;
+  --warning: 32 94% 44%;
+  --critical: 350 78% 48%;
+  --statistical: 274 62% 54%;
+  --offline: 220 12% 55%;
 }
 
 .dark {
-  /* Dark — industrial control room */
-  --bg: 218 30% 7%;
-  --surface: 218 26% 10%;
-  --surface-raised: 218 24% 13%;
-  --border: 218 18% 20%;
-  --ink: 210 25% 94%;
-  --ink-muted: 215 12% 62%;
+  /* Dark — saturated industrial control room */
+  --bg: 224 38% 8%;
+  --surface: 224 32% 11%;
+  --surface-raised: 225 30% 15%;
+  --border: 225 24% 24%;
+  --ink: 215 35% 95%;
+  --ink-muted: 220 16% 65%;
 
   --healthy: 152 60% 45%;
   --telemetry: 191 85% 55%;
