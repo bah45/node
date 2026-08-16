@@ -22,12 +22,17 @@ function LoginPageContent() {
     const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/dashboard";
     const callbackUrl = new URL("/auth/callback", window.location.origin);
     callbackUrl.searchParams.set("next", safeNext);
-    const redirectTo = process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? callbackUrl.toString();
-    const separator = redirectTo.includes("?") ? "&" : "?";
+    // Use the v0 redirect proxy only in preview. Production OAuth must return
+    // directly to this deployment so Google does not block the callback domain.
+    const isPreview = window.location.hostname.endsWith(".vercel.app") === false;
+    const baseRedirect = isPreview
+      ? process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? callbackUrl.toString()
+      : callbackUrl.toString();
+    const separator = baseRedirect.includes("?") ? "&" : "?";
 
     const { error: oauthError } = await createClient().auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${redirectTo}${separator}next=${encodeURIComponent(safeNext)}` },
+      options: { redirectTo: `${baseRedirect}${separator}next=${encodeURIComponent(safeNext)}` },
     });
 
     if (oauthError) {
